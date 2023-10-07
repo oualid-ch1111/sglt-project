@@ -1,0 +1,191 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  @apply m-0 p-0 font-sans;
+} /* Cacher la barre de défilement par défaut */
+body::-webkit-scrollbar {
+  width: 0; /* Pour Chrome, Safari et Opera */
+}
+body {
+  -ms-overflow-style: none; /* Pour Internet Explorer et Edge */
+  scrollbar-width: none; /* Pour Firefox */
+}
+/* Afficher la barre de défilement lors du défilement */
+body.scrolling::-webkit-scrollbar {
+  width: 10px;
+}
+body.scrolling::-webkit-scrollbar-thumb {
+  background-color: darkgrey;
+  outline: 1px solid slategrey;
+}
+
+a {
+  @apply text-current no-underline;
+  @apply text-blue-600 hover:text-blue-800;
+}
+
+* {
+  @apply box-border no-underline;
+  text-decoration: none !important;
+}
+
+.card {
+  @apply bg-white shadow-2xl  rounded-lg overflow-hidden transform transition-all duration-500 ease-in-out hover:scale-105 box-border;
+  box-shadow: 0 4px 6px rgba(161, 31, 31, 0.6);
+}
+
+.footer {
+  @apply bg-gray-100 py-4 px-8 text-center text-sm text-gray-500;
+}
+.center-container {
+  @apply flex  h-screen justify-center items-center;
+}
+
+.auth-container {
+  @apply bg-white p-10 rounded-lg shadow-xl w-96  transform transition-all duration-500 ease-in-out opacity-0 scale-90;
+  animation: fadeIn 0.5s forwards 0.5s;
+  visibility: hidden; /* ajoutez cette ligne */
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    visibility: hidden;
+  }
+  to {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+.input-label {
+  @apply block mb-2 text-sm text-gray-600;
+}
+
+.input-field {
+  @apply w-full p-3 border border-gray-300 rounded-md mb-4 focus:outline-none focus:border-blue-400 transition-all duration-300;
+}
+
+.auth-button {
+  @apply bg-blue-500 text-white w-full py-2 rounded-md hover:bg-blue-600 active:bg-blue-700 focus:outline-none transition-all duration-300;
+}
+
+.link-hover:hover {
+  @apply underline;
+}
+.no-underline {
+  text-decoration: none;
+}
+/* Style du bouton de menu */
+.menu-button {
+  background-color: transparent; /* Bleu moderne */
+  border-radius: 4px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.menu-button:hover {
+  background-color: transparent; /* Une version plus sombre du bleu pour le hover */
+}
+
+/* Icone de menu à côté du nom de l'utilisateur */
+.menu-icon {
+  margin-left: 8px;
+  transition: transform 0.3s ease;
+}
+
+.menu-button:hover .menu-icon {
+  transform: rotate(180deg); /* Effet de rotation de l'icône lors du survol */
+}
+
+/* Styles pour les liens du menu déroulant 
+.dropdown-link {
+  padding: 12px 16px;
+  display: block;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.dropdown-link:hover {
+  background-color: #f7f7f7; /* Gris léger pour le hover 
+}*/
+.dropdown-link {
+  padding: 12px 16px;
+  display: block;
+  color: #0e0d0d; /* Couleur de texte sombre */
+  transition: all 0.3s ease;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.dropdown-link:hover {
+  background-color: rgba(12, 11, 11, 0.05); /* Un léger gris lors du survol */
+  transform: translateX(
+    10px
+  ); /* Un léger décalage horizontal pour l'effet hover */
+}
+
+@keyframes fadeInMenu {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.absolute.right-0.w-56.origin-top-right.bg-white.shadow-lg {
+  background-color: rgba(128, 40, 40, 0.95); /* Fond blanc avec 95% d'opacité */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Ombre douce */
+  border-radius: 8px; /* Coins légèrement arrondis */
+  border: 1px solid rgba(0, 0, 0, 0.1); /* Bordure subtile */
+  animation: fadeInMenu 0.3s forwards;
+}
+.default-button {
+  @apply rounded bg-gray-100 py-2  px-4 text-black shadow outline-none hover:bg-gray-200  active:bg-gray-300;
+}
+.styled-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 25px 0;
+  font-size: 18px;
+  text-align: left;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.styled-table thead tr {
+  background-color: #303d3b;
+  color: white;
+  text-align: left;
+}
+
+.styled-table th,
+.styled-table td {
+  padding: 12px 15px;
+}
+
+.styled-table tbody tr {
+  border-bottom: 1px solid #dddddd;
+}
+
+.styled-table tbody tr:nth-of-type(even) {
+  background-color: #f3f3f3;
+}
+
+.styled-table tbody tr:last-of-type {
+  border-bottom: 2px solid #272b2a;
+}
+.alert-error {
+  @apply my-3 rounded-lg bg-red-100 p-3 text-red-700;
+}
+
+.alert-success {
+  @apply my-3 rounded-lg bg-green-100 p-3 text-green-700;
+}
